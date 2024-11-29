@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/main.css') }}">
+    {% block css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    {% endblock %}
+</head>
+<body>
+    <header>
+        <div class="voltar-pagina" onclick="history.back()">
+            <img src="{{ url_for('static', filename='images/arrow-left-white.png') }}"/>
+        </div>
+        <div onclick="redirecionar('/')" class="header-logo-link">
+            <img class="header-logo" src="{{ url_for('static', filename='images/logo-transparente.png') }}"/>
+        </div>
+        <div class="perfil-usuario" onclick="redirecionar('perfil_usuario')">
+            <img src="{{ url_for('static', filename='images/profile-circle-white.png') }}"/>
+        </div>
+    </header>
+    <div>
+        {% block main %}{% endblock %}
+    </div>
+    <script>
+        function redirecionar(rota) {
+            window.location.href = rota;
+        }
+    </script>
+</body>
+</html>

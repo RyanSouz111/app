@@ -1,0 +1,44 @@
+{% extends "templs/basePage.html" %}
+
+{% block title %} Selecionar Folhagem {% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/selecionar_folhagem.css') }}">
+{% endblock %}
+
+{% block main %}
+<main>
+    <h2>Selecionar a hortaliça para a previsão: </h2>
+    <div class="container">
+        <div class="item-container" onclick="redirecionar('selecionar_hortalica')">
+            Alface
+        </div>
+        <div class="item-container" onclick="redirecionar('selecionar_hortalica')">
+            Brócolis
+        </div>
+        <div class="item-container" onclick="redirecionar('selecionar_hortalica')">
+            Chicória
+        </div>
+        <div class="item-container" onclick="redirecionar('selecionar_hortalica')">
+            Coentro
+        </div>
+        <div class="item-container" onclick="redirecionar('selecionar_hortalica')">
+            Couve
+        </div>
+        <div class="item-container" onclick="redirecionar('selecionar_hortalica')">
+            Couve-Flor
+        </div>
+        <div class="item-container" onclick="redirecionar('selecionar_hortalica')">
+            Repolho
+        </div>
+        <div class="item-container" onclick="redirecionar('selecionar_hortalica')">
+            Rúcula
+        </div>
+    </div>
+</main>
+<script>
+    function redirecionar(rota) {
+        window.location.href = rota;
+    }
+</script>
+{% endblock %}

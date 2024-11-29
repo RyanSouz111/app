@@ -1,5 +1,5 @@
 from app import app
-from flask import request, render_template
+from flask import request, render_template, redirect, url_for
 
 @app.route("/", methods=['GET'])
 def home():
@@ -34,11 +34,30 @@ def autentica():
     email = request.form.get("email")
     senha = request.form.get("senha")
     print(f"Login realizado: {email}.")
+    return redirect(url_for('selecionar_previsao'))
+
+@app.route("/selecionar_previsao")
+def selecionar_previsao():
     return render_template('selecionar_previsao.html')
+
+# Alterar Informações
 
 @app.route("/alterar_cadastro") 
 def alterar_cadastro():
     return render_template("alterar_cadastro.html")
+
+@app.route("/atualizar_cadastro", methods=['POST'])
+def atualizar_cadastro():
+    nome = request.form.get("nome")
+    telefone = request.form.get("telefone")
+    cep = request.form.get("cep")
+
+    print(nome, telefone, cep)
+
+@app.route("/atualizar_plano", methods=['POST'])
+def atualizar_cadastro():
+    plano = request.form.get("plano")
+    print(plano)
 
 @app.route("/perfil_usuario") 
 def perfil_usuario():
@@ -75,9 +94,5 @@ def selecionar_frutas():
 @app.route("/selecionar_hortalica") 
 def selecionar_hortalica():
     return render_template('selecionar_hortalica.html')
-
-@app.route("/selecionar_previsao") 
-def selecionar_previsao():
-    return render_template('selecionar_previsao.html')
 
 

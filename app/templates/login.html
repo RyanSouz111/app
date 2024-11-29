@@ -1,35 +1,26 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% extends "templs/basePage.html" %}
+
+{% block title %} Formulário de Login {% endblock %}
+
+{% block css %}
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/login.css') }}">
-    <title>Login</title>
-</head>
-<body>
-    <header>
-        <button class="header-btn">
-            <a href="index.html">
-                <img src="{{ url_for('static', filename='images/arrow.svg') }}" class="arrow-icon"/>
-            </a>
-        </button>
-        <p class="header-title">Login</p>
-    </header>
-    <main>
-        <div class="main-background"></div>
-        <div class="main-content">
-            <form action="autentica" method="POST">
-                <div class="form-container">
-                    <label name="email">E-mail</label>
-                    <input type="email" name="email" id="email"/>
-                </div>    
-                <div class="form-container">
-                    <label name="senha">Senha</label>
-                    <input type="password" name="senha" id="senha"/>
-                </div>    
-                <button type="submit" class="btn-entrar">Entrar</button>
-            </form>            
-        </div>
-    </main>
-</body>
-</html>
+{% endblock %}
+
+{% block main %}
+<main>
+    <div class="main-background"></div>
+    <div class="main-content">
+        <form action="autentica" method="POST">
+            <div class="form-container">
+                <label name="email">E-mail</label>
+                <input type="email" name="email" id="email"/>
+            </div>    
+            <div class="form-container">
+                <label name="senha">Senha</label>
+                <input type="password" name="senha" id="senha"/>
+            </div>    
+            <button type="submit" class="btn-entrar">Entrar</button>
+        </form>            
+    </div>
+</main>
+{% endblock %}

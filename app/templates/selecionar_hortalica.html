@@ -1,0 +1,44 @@
+{% extends "templs/basePage.html" %}
+
+{% block title %} Selecionar Hortaliça {% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/selecionar_hortalicas.css') }}">
+{% endblock %}
+
+{% block main %}
+<main>
+    <h2>Selecionar a hortaliça para a previsão: </h2>
+    <div class="container">
+        <div class="item-container" onclick="redirecionar('selecionar_hortalica')">
+            Abóbora Cabutiá
+        </div>
+        <div class="item-container" onclick="redirecionar('selecionar_hortalica')">
+            Batata Doce
+        </div>
+        <div class="item-container" onclick="redirecionar('selecionar_hortalica')">
+            Batata Inglesa
+        </div>
+        <div class="item-container" onclick="redirecionar('selecionar_hortalica')">
+            Cebola
+        </div>
+        <div class="item-container" onclick="redirecionar('selecionar_hortalica')">
+            Chuchu
+        </div>
+        <div class="item-container" onclick="redirecionar('selecionar_hortalica')">
+            Mandioca
+        </div>
+        <div class="item-container" onclick="redirecionar('selecionar_hortalica')">
+            Pimentão Verde
+        </div>
+        <div class="item-container" onclick="redirecionar('selecionar_hortalica')">
+            Tomate
+        </div>
+    </div>
+</main>
+<script>
+    function redirecionar(rota) {
+        window.location.href = rota;
+    }
+</script>
+{% endblock %}

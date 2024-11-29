@@ -7,20 +7,27 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/index.css') }}">
 </head>
 <body>
+    <div class="background-container"></div>
+    <div>
+        <img src="{{ url_for('static', filename='images/logo-transparente.png') }}" class="logo"/>
+        <img src="{{ url_for('static', filename='images/fundo-homepage-folha.png') }}" class="folha"/>
+    </div>
     <div class="homepage-container">
         <h1></h1>
         <div class="homepage-footer">
-            <button class="btn-login">
-                <a href="login">
-                    Já tenho uma conta
-                </a>
+            <button class="btn-login" onclick="redirecionar('login')">
+                Já tenho uma conta
             </button>
-            <button class="btn-registrar">
-                <a href="cadastro">
-                    Criar nova conta
-                </a>
+            <button class="btn-registrar" onclick="redirecionar('cadastro')">
+                Criar nova conta
             </button>
         </div>
     </div>
+
+    <script>
+        function redirecionar(rota) {
+            window.location.href = rota;
+        }
+    </script>
 </body>
 </html>
