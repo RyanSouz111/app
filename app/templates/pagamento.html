@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/pagamento.css') }}">
+    <title>Pagamento</title>
+</head>
+<body>
+    <header>
+        <img class="header-logo" src="{{ url_for('static', filename='images/logo.jpeg') }}"/>
+    </header>
+    <main>
+        <h2>Formas de Pagamento</h2>
+        <form action="pagar" method="post">
+            <div class="form-container">
+                <input type="radio" name="forma_pagamento" id="cartao" value="cartao" checked>    
+                <label for="cartao">Cartão</label>
+            </div>
+            <div class="form-container">
+                <input type="radio" name="forma_pagamento" id="boleto" value="boleto">    
+                <label for="boleto">Boleto</label>
+            </div>
+            <div class="form-container">
+                <input type="radio" name="forma_pagamento" id="pix" value="pix">
+                <label for="pix">PIX</label>
+            </div>
+            <button type="submit" class="btn-compra">Finalizar compra</button>
+        </form>
+    </main>
+</body>
+</html>

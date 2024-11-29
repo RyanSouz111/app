@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/plano.css') }}">
+    <title>Planos</title>
+</head>
+<body>
+    <header>
+        <img class="header-logo" src="{{ url_for('static', filename='images/logo.jpeg') }}"/>
+    </header>
+    <main>
+        <div class="container-plano">
+            <div class="container-plano-conteudo">
+                <p class="container-plano-conteudo-plano">Silver</p>
+                <p class="container-plano-conteudo-plano-descricao">Conta Gratuita</p>
+                <ul>
+                    <p>Consulta de histórico ilimitados dos vegetais</p>
+                </ul>
+                <ul>
+                    <p>Acesso limitado à previsões - 3 testes gratuitos</p>
+                </ul>
+                <div class="container-plano-conteudo-bloco">
+                    <p class="container-plano-conteudo-bloco-preco">R$ 0</p>
+                    <button class="btn-assinar">Assinar</button>
+                </div>
+            </div>
+            <div class="container-plano-conteudo">
+                <p class="container-plano-conteudo-plano">Gold</p>
+                <p class="container-plano-conteudo-plano-descricao">Conta Paga</p>
+                <ul>
+                    <p>Consulta de histórico ilimitados de todos os itens</p>
+                </ul>
+                <ul>
+                    <p>Acesso limitado à previsões - 20 previsões por mês</p>
+                </ul>
+                <div class="container-plano-conteudo-bloco">
+                    <p class="container-plano-conteudo-bloco-preco">R$ 500</p>
+                    <button class="btn-assinar">Assinar</button>
+                </div>
+            </div>
+
+            <div class="container-plano-conteudo">
+                <p class="container-plano-conteudo-plano">Diamond</p>
+                <p class="container-plano-conteudo-plano-descricao">Conta Paga</p>
+                <ul>
+                    <p>Consulta de histórico ilimitados de todos os dias</p>
+                </ul>
+                <ul>
+                    <p>Acesso ilimitado à previsões</p>
+                </ul>
+                <div class="container-plano-conteudo-bloco">
+                    <p class="container-plano-conteudo-bloco-preco">R$ 1000</p>
+                    <button class="btn-assinar">Assinar</button>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
