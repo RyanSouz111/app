@@ -3,7 +3,7 @@ from flask import request, render_template
 
 @app.route("/", methods=['GET'])
 def home():
-    return render_template('index.html', par1='boa tarde', par2='POO')
+    return render_template('index.html')
 
 @app.route("/index") 
 def index():
@@ -11,19 +11,30 @@ def index():
 
 @app.route("/cadastro", methods=['GET','POST']) 
 def cadastro():
-    if request.method == "POST":
-        # Coleta os dados enviados pelo formulário
-        nome = request.form.get("nome")
-        email = request.form.get("email")
-        senha = request.form.get("senha")
-        print(f"Cadastro realizado com sucesso! Nome: {nome}, Email: {email}")
-
-
     return render_template('cadastro.html')
 
-@app.route("/login")
+@app.route("/cadastrar", methods=['GET','POST']) 
+def cadastrarCliente():
+    nome = request.form.get("nome")
+    email = request.form.get("email")
+    senha = request.form.get("senha")
+    telefone = request.form.get("telefone")
+    cep = request.form.get("cep")
+    nascimento = request.form.get("nascimento")
+    cpf = request.form.get("cpf")
+    print(f"Cadastro realizado com sucesso! Nome: {nome}, Email: {email}")
+    return render_template('planos.html')
+
+@app.route("/login", methods=['GET','POST'])
 def login():
     return render_template("login.html")
+
+@app.route("/autentica", methods=['POST'])
+def autentica():
+    email = request.form.get("email")
+    senha = request.form.get("senha")
+    print(f"Login realizado: {email}.")
+    return render_template('selecionar_previsao.html')
 
 @app.route("/alterar_cadastro") 
 def alterar_cadastro():

@@ -1,0 +1,86 @@
+* {
+    margin: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+header {
+    background-color: #172C2B;
+    width: 100vw;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-logo {
+    position: relative;
+    width: 10%;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-plano {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding-top: 20PX;
+}
+
+.container-plano-conteudo {
+    padding: 20px;
+    border-radius: 20px;
+    width: 25vw;
+    display: block;
+}
+
+.container-plano-conteudo a {
+    text-decoration: none;
+}
+
+.container-plano-conteudo:nth-child(1) {
+    background-color: gainsboro;
+}
+
+.container-plano-conteudo:nth-child(2) {
+    background-color: gold;
+}
+
+.container-plano-conteudo:nth-child(3) {
+    background-color: skyblue;
+}
+
+.container-plano-conteudo-plano {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.btn-assinar {
+    text-decoration: underline;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    font-size: 20px;
+}
+
+.container-plano-conteudo-bloco {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.container-plano-conteudo-bloco-preco {
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+.container-plano-conteudo-plano-descricao {
+    font-size: 15px;
+    font-weight: bold;
+}
