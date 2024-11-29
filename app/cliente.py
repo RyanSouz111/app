@@ -54,10 +54,26 @@ def atualizar_cadastro():
 
     print(nome, telefone, cep)
 
+@app.route("/alterar_plano") 
+def alterar_plano():
+    return render_template("alterar_plano.html")
+
+@app.route("/alterar_senha") 
+def alterar_senha():
+    return render_template("alterar_senha.html")
+
+@app.route("/atualizar_senha", methods=['POST'])
+def atualizar_senha():
+    senha = request.form.get("nova_senha")
+    print(senha)
+    return redirect(url_for('perfil_usuario'))
+
 @app.route("/atualizar_plano", methods=['POST'])
-def atualizar_cadastro():
+def atualizar_plano():
     plano = request.form.get("plano")
     print(plano)
+
+# 
 
 @app.route("/perfil_usuario") 
 def perfil_usuario():
@@ -67,21 +83,34 @@ def perfil_usuario():
 def planos():
     return render_template('planos.html')
 
-@app.route("/pagamentos") 
-def pagamentos():
-    return render_template('pagamentos.html')
+# Pagamento
+
+@app.route("/pagamento") 
+def pagamento():
+    return render_template('pagamento.html')
+
+@app.route("/pagar", methods=["POST"]) 
+def pagar():
+    pagamento = request.form.get("forma_pagamento")
+    return redirect(url_for('perfil_usuario'))
+
+# Senhas
 
 @app.route("/redefinir_senha") 
 def redefinir_senha():
     return render_template('redefinir_senha.html')
 
-@app.route("/graficos_historico") 
-def graficos_historico():
-    return render_template('graficos_historico.html')
+# Histórico e Previsões
 
-@app.route("/graficos_previsao") 
-def graficos_previsao():
-    return render_template('graficos_previsao.html')
+@app.route("/graficos_historico/<item>") 
+def graficos_historico(item):
+    print(item)
+    return render_template('graficos_historico.html', item=item)
+
+@app.route("/graficos_previsao/<item>") 
+def graficos_previsao(item):
+    print(item)
+    return render_template('graficos_previsao.html', item=item)
 
 @app.route("/selecionar_folhagem") 
 def selecionar_folhagem():
