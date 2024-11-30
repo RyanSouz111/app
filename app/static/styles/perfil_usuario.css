@@ -1,0 +1,51 @@
+.saldo-restante {
+    width: 50%;
+    margin: auto;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: #476D1D;
+    color: white;
+    font-weight: bold;
+}
+
+.divider {
+    margin: 20px 20px;
+    border-radius: 10px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.container-item {
+    background-color: #DBF0CB;
+    width: 20%;
+    text-align: center;
+    padding: 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    transition: 0.4s;
+    color: #484848;
+    cursor: pointer;
+}
+
+.container-item:hover {
+    scale: 1.1;
+}
+
+.container-saudacao {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    padding: 20px;
+}
+
+.saudacao {
+    color: #99B080;
+    font-size: 2em;
+}

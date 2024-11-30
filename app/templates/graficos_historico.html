@@ -1,0 +1,12 @@
+{% extends "templs/basePage.html" %}
+
+{% block title %} Gráficos - Histórico {% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/graficos_historico.css') }}">
+{% endblock %}
+<main>
+    <h1>Histórico para {{item}}</h1>
+</main>
+{% block main %}
+{% endblock %}

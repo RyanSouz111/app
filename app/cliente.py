@@ -1,5 +1,5 @@
 from app import app
-from flask import request, render_template
+from flask import request, render_template, redirect, url_for
 
 @app.route("/", methods=['GET'])
 def home():
@@ -34,11 +34,46 @@ def autentica():
     email = request.form.get("email")
     senha = request.form.get("senha")
     print(f"Login realizado: {email}.")
+    return redirect(url_for('selecionar_previsao'))
+
+@app.route("/selecionar_previsao")
+def selecionar_previsao():
     return render_template('selecionar_previsao.html')
+
+# Alterar Informações
 
 @app.route("/alterar_cadastro") 
 def alterar_cadastro():
     return render_template("alterar_cadastro.html")
+
+@app.route("/atualizar_cadastro", methods=['POST'])
+def atualizar_cadastro():
+    nome = request.form.get("nome")
+    telefone = request.form.get("telefone")
+    cep = request.form.get("cep")
+
+    print(nome, telefone, cep)
+
+@app.route("/alterar_plano") 
+def alterar_plano():
+    return render_template("alterar_plano.html")
+
+@app.route("/alterar_senha") 
+def alterar_senha():
+    return render_template("alterar_senha.html")
+
+@app.route("/atualizar_senha", methods=['POST'])
+def atualizar_senha():
+    senha = request.form.get("nova_senha")
+    print(senha)
+    return redirect(url_for('perfil_usuario'))
+
+@app.route("/atualizar_plano", methods=['POST'])
+def atualizar_plano():
+    plano = request.form.get("plano")
+    print(plano)
+
+# 
 
 @app.route("/perfil_usuario") 
 def perfil_usuario():
@@ -48,21 +83,34 @@ def perfil_usuario():
 def planos():
     return render_template('planos.html')
 
-@app.route("/pagamentos") 
-def pagamentos():
-    return render_template('pagamentos.html')
+# Pagamento
+
+@app.route("/pagamento") 
+def pagamento():
+    return render_template('pagamento.html')
+
+@app.route("/pagar", methods=["POST"]) 
+def pagar():
+    pagamento = request.form.get("forma_pagamento")
+    return redirect(url_for('perfil_usuario'))
+
+# Senhas
 
 @app.route("/redefinir_senha") 
 def redefinir_senha():
     return render_template('redefinir_senha.html')
 
-@app.route("/graficos_historico") 
-def graficos_historico():
-    return render_template('graficos_historico.html')
+# Histórico e Previsões
 
-@app.route("/graficos_previsao") 
-def graficos_previsao():
-    return render_template('graficos_previsao.html')
+@app.route("/graficos_historico/<item>") 
+def graficos_historico(item):
+    print(item)
+    return render_template('graficos_historico.html', item=item)
+
+@app.route("/graficos_previsao/<item>") 
+def graficos_previsao(item):
+    print(item)
+    return render_template('graficos_previsao.html', item=item)
 
 @app.route("/selecionar_folhagem") 
 def selecionar_folhagem():
@@ -75,9 +123,5 @@ def selecionar_frutas():
 @app.route("/selecionar_hortalica") 
 def selecionar_hortalica():
     return render_template('selecionar_hortalica.html')
-
-@app.route("/selecionar_previsao") 
-def selecionar_previsao():
-    return render_template('selecionar_previsao.html')
 
 

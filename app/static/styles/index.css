@@ -10,13 +10,21 @@ body {
     
 }
 
+.arrow-icon {
+    width: 40px;
+    transform: rotate(270deg);
+    background-color: white;
+}
+
 .homepage-footer {
     background-color: #FAF8ED;
     height: 30vh;
-    width: 100vw;
+    width: 70vw;
     border-radius: 60px 60px 0px 0px;
     margin: auto;
     bottom: 0;
+    left: 50%;
+    transform: translate(-50%,0);
     position: absolute;
     z-index: 10;
 
@@ -35,22 +43,65 @@ button {
 .btn-login {
     background-color: #172C2B;
     border-radius: 30px;
-    border-width: 0;
+    border-width: 2px;
+    border-color: #172C2B;
+    border-style: solid;
     color: white;
     font-weight: bold;
+    transition: 0.4s;
+}
+
+.btn-login:hover {
+    background-color: #748E63;
+    border-color: #748E63;
 }
 
 .btn-registrar {
     background-color: white;
-    border: #172C2B;
     color: #172C2B;
+    border-width: 2px;
     border-radius: 30px;
     border-color: #172C2B;
-    border-width: 6px;
+    border-style: solid;
     font-weight: bold;
+    transition: 0.4s;
+}
+
+.btn-registrar:hover {
+    background-color: #748E63;
+    border-color: #748E63;
+    color: white;
 }
 
 a {
     color: inherit;
     text-decoration: none;
+}
+
+.background-container {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    background-image: url("../images/fundo-homepage.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.folha {
+    max-width: 40%;
+    opacity: 60%;
+    position: fixed;
+    left: 0;
+    top: 20%;
+}
+
+.logo {
+    position: fixed;
+    max-width: 40%;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%,0)
 }

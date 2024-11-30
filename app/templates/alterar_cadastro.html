@@ -1,0 +1,29 @@
+{% extends "templs/basePage.html" %}
+
+{% block title %} Alterar Cadastro {% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/cadastro.css') }}">
+{% endblock %}
+
+{% block main %}
+<main>
+    <form action="/atualizar_cadastro" method="POST">
+        <div class="field-container">
+            <label name="nome">Nome</label>
+            <input type="text" name="nome" id="nome">
+        </div>    
+        <div class="field-container">
+            <label name="telefone">Telefone</label>
+            <input type="number" name="telefone" id="telefone">
+        </div>    
+        <div class="field-container">
+            <label name="cep">CEP</label>
+            <input type="number" name="cep" id="cep">
+        </div>    
+        <div class="field-container">
+            <button type="submit" class="btn-submit">Próximo</button>
+        </div>  
+    </form>
+</main>
+{% endblock %}

@@ -1,1 +1,30 @@
+{% extends "templs/basePage.html" %}
 
+{% block title %} Perfil Usuário {% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/perfil_usuario.css') }}">
+{% endblock %}
+
+{% block main %}
+<main>
+    <div class="container-saudacao">
+        <p class="saudacao">Olá, {{ nome }}</p>
+    </div>
+    <div class="saldo-restante">
+        O seu saldo atual é de: <br> <span style="font-size: 2em;">{{ creditos_restantes }} para previsões</span>
+    </div>
+    <hr class="divider">
+    <div class="container">
+        <div class="container-item" onclick="redirecionar('alterar_cadastro')">Alterar Cadastro</div>
+        <div class="container-item" onclick="redirecionar('planos')">Alterar Plano</div>
+        <div class="container-item" onclick="redirecionar('pagamento')">Alterar Forma de Pagamento</div>
+        <div class="container-item" onclick="redirecionar('alterar_senha')">Redefinir Senha</div>
+    </div>
+</main>
+<script>
+    function redirecionar(rota) {
+        window.location.href = rota;
+    }
+</script>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "templs/basePage.html" %}
+
+{% block title %} Alterar Cadastro {% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/cadastro.css') }}">
+{% endblock %}
+
+{% block main %}
+<main>
+    <form action="/atualizar_senha" method="POST">
+        <div class="field-container">
+            <label name="senha_antiga">Senha antiga</label>
+            <input type="password" name="senha_antiga" id="senha_antiga">
+        </div>    
+        <div class="field-container">
+            <label name="nova_senha">Nova senha</label>
+            <input type="password" name="nova_senha" id="nova_senha">
+        </div>    
+        <div class="field-container">
+            <label name="nova_senha_confirmar">Confirmar nova senha</label>
+            <input type="password" name="nova_senha_confirmar" id="nova_senha_confirmar">
+        </div>    
+        <div class="field-container">
+            <button type="submit" class="btn-submit">Próximo</button>
+        </div>  
+    </form>
+</main>
+{% endblock %}

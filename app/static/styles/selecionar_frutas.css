@@ -1,0 +1,36 @@
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding-top: 20px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.item-container {
+    background-color: #F0CBCB;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: #484848;
+    cursor: pointer;
+    transition: 0.4s;
+    width: 25vw;
+    height: 10vh;
+    border-radius: 15px;
+}
+
+.item-container:hover {
+    scale: 1.1;
+    background-color: pink;
+}

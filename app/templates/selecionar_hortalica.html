@@ -1,0 +1,44 @@
+{% extends "templs/basePage.html" %}
+
+{% block title %} Selecionar Hortaliça {% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/selecionar_hortalicas.css') }}">
+{% endblock %}
+
+{% block main %}
+<main>
+    <h2>Selecionar a hortaliça para a previsão: </h2>
+    <div class="container">
+        <div class="item-container" onclick="redirecionarGraficos('Abobora Cabutiá')">
+            Abóbora Cabutiá
+        </div>
+        <div class="item-container" onclick="redirecionarGraficos('Batata Doce')">
+            Batata Doce
+        </div>
+        <div class="item-container" onclick="redirecionarGraficos('Batata Ingles')">
+            Batata Inglesa
+        </div>
+        <div class="item-container" onclick="redirecionarGraficos('Cebola')">
+            Cebola
+        </div>
+        <div class="item-container" onclick="redirecionarGraficos('Chuchu')">
+            Chuchu
+        </div>
+        <div class="item-container" onclick="redirecionarGraficos('Mandioca')">
+            Mandioca
+        </div>
+        <div class="item-container" onclick="redirecionarGraficos('Pimentão Verde')">
+            Pimentão Verde
+        </div>
+        <div class="item-container" onclick="redirecionarGraficos('Tomate')">
+            Tomate
+        </div>
+    </div>
+</main>
+<script>
+    function redirecionarGraficos(rota) {
+        window.location.href = 'graficos_historico/' + rota;
+    }
+</script>
+{% endblock %}
