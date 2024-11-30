@@ -7,7 +7,7 @@ def home():
 
 @app.route("/index") 
 def index():
-    return render_template('index.html', par1="Boa tarde", par2="Cliente")
+    return render_template('index.html')
 
 @app.route("/cadastro", methods=['GET','POST']) 
 def cadastro():
@@ -36,9 +36,7 @@ def autentica():
     print(f"Login realizado: {email}.")
     return redirect(url_for('selecionar_previsao'))
 
-@app.route("/selecionar_previsao")
-def selecionar_previsao():
-    return render_template('selecionar_previsao.html')
+# Alteração de planos, cadastro e senha
 
 @app.route("/alterar_cadastro", methods=['POST', 'GET']) 
 def alterar_cadastro():
@@ -56,20 +54,41 @@ def atualizar_cadastro():
 def alterar_plano():
     return render_template("alterar_plano.html")
 
+@app.route("/atualizar_plano", methods=['POST'])
+def atualizar_plano():
+    plano = request.form.get("plano")
+    print(plano)
+
 @app.route("/alterar_senha") 
 def alterar_senha():
     return render_template("alterar_senha.html")
 
 @app.route("/atualizar_senha", methods=['POST'])
 def atualizar_senha():
-    senha = request.form.get("nova_senha")
-    print(senha)
-    return redirect(url_for('perfil_usuario'))
+    if request.method == 'POST':
+        email = request.form.get("email")
+        senha = request.form.get("nova_senha")
+        confirmar_senha = request.form.get("nova_senha_confirmar")
 
-@app.route("/atualizar_plano", methods=['POST'])
-def atualizar_plano():
-    plano = request.form.get("plano")
-    print(plano)
+        if email:
+            print(email)
+            if senha and confirmar_senha != None:
+                if senha == confirmar_senha:
+                    print(f'nova senha {senha}')
+                    return redirect(url_for('login'))
+                else:
+                    print(f'senha: {senha, confirmar_senha}')
+                    return render_template('alterar_senha.html')
+
+            else:
+                print(f'senha: {senha}')
+                #flash("As senhas não coincidem. Por favor, tente novamente.", "error")
+                return render_template('alterar_senha.html')
+        else:
+            return render_template('alterar_senha.html')
+
+    return render_template('alterar_senha.html')
+
 
 # 
 
@@ -92,9 +111,7 @@ def pagar():
     pagamento = request.form.get("forma_pagamento")
     return redirect(url_for('perfil_usuario'))
 
-# Senhas
-
-@app.route("/redefinir_senha", methods=['POST', 'GET'])
+'''@app.route("/redefinir_senha", methods=['POST', 'GET'])
 def redefinir_senha():
     if request.method == 'POST':
         email = request.form.get("email")
@@ -109,11 +126,14 @@ def redefinir_senha():
             print(f'senha: {senha}')
             #flash("As senhas não coincidem. Por favor, tente novamente.", "error")
             return render_template('redefinir_senha.html')
-        
 
-    return render_template('redefinir_senha.html')
+    return render_template('redefinir_senha.html')'''
 
 # Histórico e Previsões
+
+@app.route("/selecionar_previsao")
+def selecionar_previsao():
+    return render_template('selecionar_previsao.html')
 
 @app.route("/graficos_historico/<item>") 
 def graficos_historico(item):
@@ -136,9 +156,4 @@ def selecionar_frutas():
 @app.route("/selecionar_hortalica") 
 def selecionar_hortalica():
     return render_template('selecionar_hortalica.html')
-
-@app.route("/selecionar_previsao") 
-def selecionar_previsao():
-    return render_template('selecionar_previsao.html')
-
 
