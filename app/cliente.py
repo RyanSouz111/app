@@ -1,5 +1,5 @@
 from app import app
-from flask import request, render_template, redirect, url_for
+from flask import request, render_template, redirect, url_for, flash
 
 @app.route("/", methods=['GET'])
 def home():
@@ -40,9 +40,7 @@ def autentica():
 def selecionar_previsao():
     return render_template('selecionar_previsao.html')
 
-# Alterar Informações
-
-@app.route("/alterar_cadastro") 
+@app.route("/alterar_cadastro", methods=['POST', 'GET']) 
 def alterar_cadastro():
     return render_template("alterar_cadastro.html")
 
@@ -96,8 +94,23 @@ def pagar():
 
 # Senhas
 
-@app.route("/redefinir_senha") 
+@app.route("/redefinir_senha", methods=['POST', 'GET'])
 def redefinir_senha():
+    if request.method == 'POST':
+        email = request.form.get("email")
+        senha = request.form.get("password")
+        confirmar_senha = request.form.get("confirmar_senha")
+
+        if senha == confirmar_senha:
+            print(f'nova senha {senha}')
+            return redirect(url_for('login'))
+
+        else:
+            print(f'senha: {senha}')
+            #flash("As senhas não coincidem. Por favor, tente novamente.", "error")
+            return render_template('redefinir_senha.html')
+        
+
     return render_template('redefinir_senha.html')
 
 # Histórico e Previsões
@@ -123,5 +136,9 @@ def selecionar_frutas():
 @app.route("/selecionar_hortalica") 
 def selecionar_hortalica():
     return render_template('selecionar_hortalica.html')
+
+@app.route("/selecionar_previsao") 
+def selecionar_previsao():
+    return render_template('selecionar_previsao.html')
 
 
