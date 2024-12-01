@@ -1,5 +1,9 @@
 from app import app
 from flask import request, render_template, redirect, url_for, flash
+from app.validacao_cadastro import ContaCliente
+
+
+validacao_clientes = ContaCliente()
 
 @app.route("/", methods=['GET'])
 def home():
@@ -22,6 +26,13 @@ def cadastrarCliente():
     cep = request.form.get("cep")
     nascimento = request.form.get("nascimento")
     cpf = request.form.get("cpf")
+
+    id = len(validacao_clientes.armazenar_dados_clientes) + 1 # Gerar um ID simples
+    cadastro = validacao_clientes.adicionar_cliente(nome, cpf, id, email, senha, telefone, cep, nascimento)
+    print(cadastro)
+    lista = validacao_clientes.listar_clientes()
+    print(lista)
+
     print(f"Cadastro realizado com sucesso! Nome: {nome}, Email: {email}")
     return render_template('planos.html')
 
@@ -33,8 +44,11 @@ def login():
 def autentica():
     email = request.form.get("email")
     senha = request.form.get("senha")
-    print(f"Login realizado: {email}.")
-    return redirect(url_for('selecionar_previsao'))
+    if validacao_clientes.autenticar_clientes(email, senha):
+        print(f"Login realizado: {email}.")
+        return redirect(url_for('selecionar_previsao'))
+    else:
+        return render_template('login.html')
 
 # Alteração de planos, cadastro e senha
 
@@ -47,7 +61,6 @@ def atualizar_cadastro():
     nome = request.form.get("nome")
     telefone = request.form.get("telefone")
     cep = request.form.get("cep")
-
     print(nome, telefone, cep)
 
 @app.route("/alterar_plano") 
