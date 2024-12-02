@@ -11,31 +11,31 @@
     <form action="/cadastrar" method="POST">
         <div class="field-container">
             <label name="nome">Nome</label>
-            <input type="text" name="nome" id="nome">
+            <input type="text" name="nome" id="nome" required>
         </div>    
         <div class="field-container">
             <label name="telefone">Telefone</label>
-            <input type="number" name="telefone" id="telefone">
+            <input type="number" name="telefone" id="telefone" maxlength="11" minlength="11" required>
         </div>    
         <div class="field-container">
             <label name="cpf">CPF</label>
-            <input type="number" name="cpf" id="cpf">
+            <input type="number" name="cpf" id="cpf" maxlength="11" minlength="11" required>
         </div>    
         <div class="field-container">
             <label name="nascimento">Data de Nascimento</label>
-            <input type="date" name="nascimento" id="nascimento">
+            <input type="date" name="nascimento" id="nascimento" required>
         </div>
         <div class="field-container">
             <label name="cep">CEP</label>
-            <input type="number" name="cep" id="cep">
+            <input type="number" name="cep" id="cep" maxlength="8" minlength="8" required>
         </div>    
         <div class="field-container">
             <label name="email">E-mail</label>
-            <input type="email" name="email" id="email">
+            <input type="email" name="email" id="email" required>
         </div>  
         <div class="field-container">
             <label name="senha">Senha</label>
-            <input type="password" name="senha" id="senha">
+            <input type="password" name="senha" id="senha" required>
         </div>  
         <div class="field-container">
             <button type="submit" class="btn-submit">Próximo</button>

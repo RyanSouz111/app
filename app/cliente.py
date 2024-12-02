@@ -199,12 +199,13 @@ def pagar():
 def selecionar_previsao():
     return render_template('selecionar_previsao.html')
 
-@app.route("/graficos_historico/<item>") 
+@app.route("/graficos_historico/<tipo>/<item>") 
 @login_required
-def graficos_historico(item):
-    print(item)
-    grafico = plotar_serie_historica('Pcomum', item)
-    return render_template('graficos_historico.html', item=item, grafico=grafico)
+def graficos_historico(item, tipo):
+    dados = carregar_dados_json(tipo)
+    item_sanitizado = dados[item]
+    grafico = plotar_serie_historica('Pcomum', item, tipo)
+    return render_template('graficos_historico.html', item=item_sanitizado, grafico=grafico)
 
 @app.route("/graficos_previsao/<item>") 
 @login_required

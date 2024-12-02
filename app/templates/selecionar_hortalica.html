@@ -10,30 +10,6 @@
 <main>
     <h2>Selecionar a hortaliça para a previsão: </h2>
     <div class="container">
-        <!-- <div class="item-container" onclick="redirecionarGraficos('Abobora Cabutiá')">
-            Abóbora Cabutiá
-        </div>
-        <div class="item-container" onclick="redirecionarGraficos('Batata Doce')">
-            Batata Doce
-        </div>
-        <div class="item-container" onclick="redirecionarGraficos('Batata Ingles')">
-            Batata Inglesa
-        </div>
-        <div class="item-container" onclick="redirecionarGraficos('Cebola')">
-            Cebola
-        </div>
-        <div class="item-container" onclick="redirecionarGraficos('Chuchu')">
-            Chuchu
-        </div>
-        <div class="item-container" onclick="redirecionarGraficos('Mandioca')">
-            Mandioca
-        </div>
-        <div class="item-container" onclick="redirecionarGraficos('Pimentão Verde')">
-            Pimentão Verde
-        </div>
-        <div class="item-container" onclick="redirecionarGraficos('Tomate')">
-            Tomate
-        </div> -->
         {% for chave, valor in dados.items() %}
         <div class="item-container" onclick="redirecionarGraficos('{{ chave }}')">
             {{ valor }}
@@ -43,7 +19,7 @@
 </main>
 <script>
     function redirecionarGraficos(rota) {
-        window.location.href = 'graficos_historico/' + rota;
+        window.location.href = 'graficos_historico/hortalicas/' + rota;
     }
 </script>
 {% endblock %}

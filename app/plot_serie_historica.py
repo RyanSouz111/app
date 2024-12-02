@@ -18,8 +18,8 @@ def carregar_dados_json(arquivo):
         dados = json.load(file)
     return dados
 
-def plotar_serie_historica(tipoDado, produto):
-    displayProdutos = carregar_dados_json('hortalicas')
+def plotar_serie_historica(tipoDado, produto, tipo):
+    displayProdutos = carregar_dados_json(tipo)
     dados = load_data(file_path)
     dados.drop(dados.tail(1).index, inplace=True)
 
