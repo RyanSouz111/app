@@ -6,6 +6,7 @@
     background-color: #476D1D;
     color: white;
     font-weight: bold;
+    cursor: pointer;
 }
 
 .divider {
@@ -37,12 +38,23 @@
     scale: 1.1;
 }
 
+.container-item:last-child {
+    background-color: #F0CBCB;
+}
+
+.container-item:last-child:hover {
+    background-color: #e57474;
+}
+
 .container-saudacao {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: start;
     width: 50%;
+    margin-left: 50%;
+    transform: translateX(-50%);
     padding: 20px;
+    text-align: left;
 }
 
 .saudacao {

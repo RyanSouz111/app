@@ -17,13 +17,16 @@
         <div onclick="redirecionar('/')" class="header-logo-link">
             <img class="header-logo" src="{{ url_for('static', filename='images/logo-transparente.png') }}"/>
         </div>
-        <div class="perfil-usuario" onclick="redirecionar('perfil_usuario')">
+        <div class="perfil-usuario" onclick="redirecionar('/perfil_usuario')">
             <img src="{{ url_for('static', filename='images/profile-circle-white.png') }}"/>
         </div>
     </header>
-    <div>
+    <div class="main-content">
         {% block main %}{% endblock %}
     </div>
+    <!-- <footer>
+        <p>Direitos reservados HortiScale.</p>
+    </footer> -->
     <script>
         function redirecionar(rota) {
             window.location.href = rota;

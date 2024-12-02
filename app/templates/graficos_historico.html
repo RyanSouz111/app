@@ -5,8 +5,10 @@
 {% block css %}
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/graficos_historico.css') }}">
 {% endblock %}
-<main>
-    <h1>Histórico para {{item}}</h1>
-</main>
+
 {% block main %}
+<main>
+    <div class="titulo">Histórico para {{ item }}</div>
+    {{ grafico|safe }}
+</main>
 {% endblock %}

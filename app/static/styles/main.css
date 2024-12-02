@@ -50,3 +50,16 @@ header {
 .perfil-usuario img {
     width: 40px;
 }
+
+footer {
+    display: flex;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    color: #99B080;
+}
+
+.main-content {
+    margin-bottom: 10px;
+}

@@ -39,7 +39,14 @@
         </div>  
         <div class="field-container">
             <button type="submit" class="btn-submit">Próximo</button>
-        </div>  
+        </div>
     </form>
+    <script>
+        
+        const cadastrado = "{{ 'true' if cadastrado else 'false' }}" === "true";
+        if (cadastrado) {
+            window.alert('Usuário já cadastrado!');
+        }
+    </script>
 </main>
 {% endblock %}

@@ -8,9 +8,9 @@
 
 {% block main %}
 <main>
-    <h2>Selecionar a hortaliça para a previsão: </h2>
+    <h2>Selecionar a folhagem para a previsão: </h2>
     <div class="container">
-        <div class="item-container" onclick="redirecionar('selecionar_hortalica')">
+        <!-- <div class="item-container" onclick="redirecionar('selecionar_hortalica')">
             Alface
         </div>
         <div class="item-container" onclick="redirecionar('selecionar_hortalica')">
@@ -33,12 +33,17 @@
         </div>
         <div class="item-container" onclick="redirecionar('selecionar_hortalica')">
             Rúcula
+        </div> -->
+        {% for chave, valor in dados.items() %}
+        <div class="item-container" onclick="redirecionarGraficos('{{ chave }}')">
+            {{ valor }}
         </div>
+        {% endfor %}
     </div>
 </main>
 <script>
-    function redirecionar(rota) {
-        window.location.href = rota;
+    function redirecionarGraficos(rota) {
+        window.location.href = 'graficos_historico/' + rota;
     }
 </script>
 {% endblock %}

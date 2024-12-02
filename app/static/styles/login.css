@@ -8,7 +8,7 @@ main {
     width: 100vw;
 }
 
-.main-background {
+.main-background-login {
     width: 100vw;
     height: 100%;
     background-image: url("../images/login-background.jpg");
@@ -21,7 +21,7 @@ main {
     position: fixed;
 }
 
-.main-content {
+.main-content-login {
     background-color: rgba(0, 0, 0, 0.4);
     height: 90%;
     width: 100vw;
@@ -77,4 +77,9 @@ form {
 .btn-entrar:hover {
     background-color: rgba(60, 240, 90, 1);
     color: white;
+}
+
+.criar-conta a {
+    color: white;
+    text-decoration: underline;
 }

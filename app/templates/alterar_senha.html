@@ -10,10 +10,6 @@
 <main>
     <form action="/atualizar_senha" method="POST">
         <div class="field-container">
-            <label name="email">Email</label>
-            <input type="email" name="email" id="email">
-        </div>    
-        <div class="field-container">
             <label name="nova_senha">Nova senha</label>
             <input type="password" name="nova_senha" id="nova_senha">
         </div>    
@@ -26,4 +22,10 @@
         </div>  
     </form>
 </main>
+<script>
+    const senhas_iguais = "{{ 'true' if senhas_iguais else 'false' }}" === "true";
+    if (!senhas_iguais) {
+        window.alert('As senhas não são iguais.');
+    }
+</script>
 {% endblock %}

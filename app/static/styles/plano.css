@@ -25,15 +25,15 @@ main {
     text-decoration: none;
 }
 
-.container-plano-conteudo:nth-child(1) {
+.container-plano:nth-child(1) .container-plano-conteudo {
     background-color: gainsboro;
 }
 
-.container-plano-conteudo:nth-child(2) {
+.container-plano:nth-child(2) .container-plano-conteudo {
     background-color: gold;
 }
 
-.container-plano-conteudo:nth-child(3) {
+.container-plano:nth-child(3) .container-plano-conteudo {
     background-color: skyblue;
 }
 

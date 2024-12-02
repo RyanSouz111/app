@@ -9,17 +9,24 @@
 {% block main %}
 <main>
     <div class="container-saudacao">
-        <p class="saudacao">Olá, {{ nome }}</p>
+        <p class="saudacao">Olá, {{ user.nome }}</p><br>
+        <p class="saudacao-info">CPF: {{ user.cpf }}</p>
+        <p class="saudacao-info">CEP: {{ user.cep }}</p>
+        <p class="saudacao-info">Telefone: {{ user.telefone }}</p>
+        <p class="saudacao-info">Forma de Pagamento: {{ user.forma_pagamento }}</p>
     </div>
-    <div class="saldo-restante">
-        O seu saldo atual é de: <br> <span style="font-size: 2em;">{{ creditos_restantes }} para previsões</span>
+    <div class="saldo-restante" onclick="redirecionar('selecionar_previsao')">
+        O seu saldo atual é de: <br> <span style="font-size: 2em;">{{ user.creditos_restantes }} previsões</span>
+        <br/>
+        <br/><span style="text-transform: capitalize;">Plano atual: {{ user.plano_atual }}</span>
     </div>
     <hr class="divider">
     <div class="container">
         <div class="container-item" onclick="redirecionar('alterar_cadastro')">Alterar Cadastro</div>
         <div class="container-item" onclick="redirecionar('planos')">Alterar Plano</div>
-        <div class="container-item" onclick="redirecionar('pagamento')">Alterar Forma de Pagamento</div>
+        <div class="container-item" onclick="redirecionar('{{ url_for('pagamento', plano=user.plano_atual) }}')">Alterar Forma de Pagamento</div>
         <div class="container-item" onclick="redirecionar('alterar_senha')">Redefinir Senha</div>
+        <div class="container-item sair" onclick="redirecionar('sair')">Sair</div>
     </div>
 </main>
 <script>

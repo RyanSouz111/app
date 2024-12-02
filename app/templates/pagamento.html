@@ -9,6 +9,7 @@
 {% block main %}
 <main>
     <h2>Formas de Pagamento</h2>
+    <h3>Plano Selecionado: <span style="text-transform: capitalize;">{{ plano }}</span></h3>
     <form action="pagar" method="post">
         <div class="form-container">
             <input type="radio" name="forma_pagamento" id="cartao" value="cartao" checked>    
@@ -23,6 +24,7 @@
             <label for="pix">PIX</label>
         </div>
         <button type="submit" class="btn-compra">Finalizar compra</button>
+        <input type="hidden" name="plano" value="{{plano}}"/>
     </form>
 </main>
 {% endblock %}

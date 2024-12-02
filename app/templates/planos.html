@@ -8,50 +8,60 @@
 
 {% block main %}
 <main>
-    <div class="container-plano">
-        <div class="container-plano-conteudo">
-            <p class="container-plano-conteudo-plano">Silver</p>
-            <p class="container-plano-conteudo-plano-descricao">Conta Gratuita</p>
-            <ul>
-                <p>Consulta de histórico ilimitados dos vegetais</p>
-            </ul>
-            <ul>
-                <p>Acesso limitado à previsões - 3 testes gratuitos</p>
-            </ul>
-            <div class="container-plano-conteudo-bloco">
-                <p class="container-plano-conteudo-bloco-preco">R$ 0</p>
-                <button class="btn-assinar">Assinar</button>
+    <div>
+        <form class="container-plano" action="{{ url_for('assinar_plano') }}" method="POST">
+            <input name="tipo_plano" type="hidden" value="silver">
+            <div class="container-plano-conteudo">
+                <p class="container-plano-conteudo-plano">Silver</p>
+                <p class="container-plano-conteudo-plano-descricao">Conta Gratuita</p>
+                <ul>
+                    <p>Consulta de histórico ilimitados dos vegetais</p>
+                </ul>
+                <ul>
+                    <p>Acesso limitado à previsões - 3 testes gratuitos</p>
+                </ul>
+                <div class="container-plano-conteudo-bloco">
+                    <p class="container-plano-conteudo-bloco-preco">R$ 0</p>
+                    <button class="btn-assinar">Assinar</button>
+                </div>
             </div>
-        </div>
-        <div class="container-plano-conteudo">
-            <p class="container-plano-conteudo-plano">Gold</p>
-            <p class="container-plano-conteudo-plano-descricao">Conta Paga</p>
-            <ul>
-                <p>Consulta de histórico ilimitados de todos os itens</p>
-            </ul>
-            <ul>
-                <p>Acesso limitado à previsões - 20 previsões por mês</p>
-            </ul>
-            <div class="container-plano-conteudo-bloco">
-                <p class="container-plano-conteudo-bloco-preco">R$ 500</p>
-                <button class="btn-assinar">Assinar</button>
-            </div>
-        </div>
+            </form>
 
-        <div class="container-plano-conteudo">
-            <p class="container-plano-conteudo-plano">Diamond</p>
-            <p class="container-plano-conteudo-plano-descricao">Conta Paga</p>
-            <ul>
-                <p>Consulta de histórico ilimitados de todos os dias</p>
-            </ul>
-            <ul>
-                <p>Acesso ilimitado à previsões</p>
-            </ul>
-            <div class="container-plano-conteudo-bloco">
-                <p class="container-plano-conteudo-bloco-preco">R$ 1000</p>
-                <button class="btn-assinar">Assinar</button>
+            <form class="container-plano" action="{{ url_for('assinar_plano') }}" method="POST">
+            <input name="tipo_plano" type="hidden" value="gold">
+            <div class="container-plano-conteudo">
+                <p class="container-plano-conteudo-plano">Gold</p>
+                <p class="container-plano-conteudo-plano-descricao">Conta Paga</p>
+                <ul>
+                    <p>Consulta de histórico ilimitados de todos os itens</p>
+                </ul>
+                <ul>
+                    <p>Acesso limitado à previsões - 20 previsões por mês</p>
+                </ul>
+                <div class="container-plano-conteudo-bloco">
+                    <p class="container-plano-conteudo-bloco-preco">R$ 500</p>
+                    <button class="btn-assinar">Assinar</button>
+                </div>
             </div>
-        </div>
+            </form>
+
+            <form class="container-plano" action="{{ url_for('assinar_plano') }}" method="POST">
+            <input name="tipo_plano" type="hidden" value="diamond">
+            <div class="container-plano-conteudo">
+                <p class="container-plano-conteudo-plano">Diamond</p>
+                <p class="container-plano-conteudo-plano-descricao">Conta Paga</p>
+                <ul>
+                    <p>Consulta de histórico ilimitados de todos os dias</p>
+                </ul>
+                <ul>
+                    <p>Acesso ilimitado à previsões</p>
+                </ul>
+                <div class="container-plano-conteudo-bloco">
+                    <p class="container-plano-conteudo-bloco-preco">R$ 1000</p>
+                    <button class="btn-assinar">Assinar</button>
+                </div>
+            </div>
+        </form>
     </div>
 </main>
 {% endblock %}

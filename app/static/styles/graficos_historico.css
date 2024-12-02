@@ -1,0 +1,8 @@
+.titulo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #99B080;
+    font-size: 2em;
+    padding: 20px 0px;
+}

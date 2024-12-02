@@ -8,8 +8,8 @@
 
 {% block main %}
 <main>
-    <div class="main-background"></div>
-    <div class="main-content">
+    <div class="main-background-login"></div>
+    <div class="main-content-login">
         <form action="autentica" method="POST">
             <div class="form-container">
                 <label name="email">E-mail</label>
@@ -19,8 +19,17 @@
                 <label name="senha">Senha</label>
                 <input type="password" name="senha" id="senha"/>
             </div>    
+            <div class="form-container criar-conta">
+                <a href="cadastro">Não tem uma conta? Crie uma.</a>
+            </div>
             <button type="submit" class="btn-entrar">Entrar</button>
         </form>            
     </div>
+    <script>
+        const existe = "{{ 'true' if usuario_nao_existe else 'false' }}" === "true";
+        if (existe) {
+            window.alert('Usuário não existe!');
+        }
+    </script>
 </main>
 {% endblock %}
