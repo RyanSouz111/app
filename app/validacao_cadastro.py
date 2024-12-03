@@ -57,7 +57,7 @@ class BancoDeDados:
     def remover_cliente(self, id):
         cliente_para_remover = self.encontrar_cliente_por_id(id)
         if cliente_para_remover:
-            objetos.remove(cliente_para_remover)
+            self.armazenar_dados_clientes.remove(cliente_para_remover)
             return f'Cliente removido.'
         else:
             return f'Não encontrado.'

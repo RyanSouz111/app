@@ -223,12 +223,14 @@ def selecionar_previsao():
     print("Renderizar selecionar a previsão chamado.")
     return render_template('selecionar_previsao.html')
 
-@app.route("/graficos_historico/<item>") 
+@app.route("/graficos_historico/<tipo>/<item>") 
 @login_required
-def graficos_historico(item):
-    print(f"Gráfico do Histórico chamado para item {item}.")
-    grafico = plotar_serie_historica('Pcomum', item)
-    return render_template('graficos_historico.html', item=item, grafico=grafico)
+def graficos_historico(item, tipo):
+    print(f"Gráfico de HIstórico chamado. Item: {item}, tipo: {tipo}.")
+    dados = carregar_dados_json(tipo)
+    item_sanitizado = dados[f"Gráfico do Histórico chamado para item {item}."]
+    grafico = plotar_serie_historica('Pcomum', item, tipo)
+    return render_template('graficos_historico.html', item=item_sanitizado, grafico=grafico)
 
 @app.route("/graficos_previsao/<item>") 
 @login_required
