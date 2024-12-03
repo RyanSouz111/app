@@ -6,3 +6,12 @@
     font-size: 2em;
     padding: 20px 0px;
 }
+
+.previsao {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: underline;
+    color: lime;
+    cursor: pointer;
+}

@@ -10,5 +10,15 @@
 <main>
     <div class="titulo">Histórico para {{ item }}</div>
     {{ grafico|safe }}
+    <div class="previsao" onclick="redirecionarPrevisao()">
+        Ver previsão para {{item}}
+    </div>
 </main>
+<script>
+    function redirecionarPrevisao() {
+        const currentPath = window.location.pathname;
+        const newPath = currentPath.replace("/graficos_historico", "/graficos_previsao");
+        window.location.href = newPath;
+    }
+</script>
 {% endblock %}

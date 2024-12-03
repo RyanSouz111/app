@@ -226,17 +226,34 @@ def selecionar_previsao():
 @app.route("/graficos_historico/<tipo>/<item>") 
 @login_required
 def graficos_historico(item, tipo):
-    print(f"Gráfico de HIstórico chamado. Item: {item}, tipo: {tipo}.")
+    print(f"Gráfico de Histórico chamado. Item: {item}, tipo: {tipo}.")
     dados = carregar_dados_json(tipo)
-    item_sanitizado = dados[f"Gráfico do Histórico chamado para item {item}."]
+    item_sanitizado = dados[item]
     grafico = plotar_serie_historica('Pcomum', item, tipo)
+    print("Gráfico de Histórico gerado.")
     return render_template('graficos_historico.html', item=item_sanitizado, grafico=grafico)
 
-@app.route("/graficos_previsao/<item>") 
+@app.route("/graficos_previsao/<tipo>/<item>") 
 @login_required
-def graficos_previsao(item):
-    print(f"Grafico de Previsão chamado para item {item}.")
-    return render_template('graficos_previsao.html', item=item)
+def graficos_previsao(item, tipo):
+    print(f"Grafico de Previsão chamado. Item: {item}, tipo: {tipo}.")
+    print(f"Requisição realizada por {session['usuario_atual']['nome']}. Créditos restantes: {session['usuario_atual']['creditos_restantes']}")
+
+    cliente = bd.encontrar_cliente_por_id(session['usuario_atual']['id'])
+    creditos = cliente.creditos_restantes
+
+    if creditos >= 1:
+        dados = carregar_dados_json(tipo)
+        item_sanitizado = dados[item]
+        grafico = plotar_serie_historica('Pcomum', item, tipo)
+        cliente.creditos_restantes -= 1
+        session['usuario_atual'] = cliente.__dict__
+        print(f"Crédito consumido. Créditos restantes: {cliente.creditos_restantes}")
+        print("Gráfico de Previsão gerado.")
+        return render_template('graficos_previsao.html', item=item_sanitizado, grafico=grafico)
+    
+    return render_template('graficos_previsao.html')
+    
 
 @app.route("/selecionar_folhagem") 
 @login_required
