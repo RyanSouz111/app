@@ -4,10 +4,12 @@ import os
 import json
 import pandas as pd
 import plotly.express as px
+from functools import lru_cache
 
 current_dir = os.path.dirname(__file__)
 file_path = os.path.abspath(os.path.join(current_dir, 'tabela_geral.xlsx'))
 
+@lru_cache(maxsize=1)  # Cache com capacidade para 1 resultado
 def load_data(file_path):
     data = pd.read_excel(file_path)
     return data

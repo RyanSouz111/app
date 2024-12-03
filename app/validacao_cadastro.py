@@ -19,6 +19,7 @@ class Cliente:
         self.__data_criacao = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
 
     def alterar_plano(self, plano):
+        print(f"(Objeto) Alterando plano do cliente: {plano}.")
         self.plano_atual = plano
         
         if plano == 'silver':
@@ -28,18 +29,29 @@ class Cliente:
         elif plano == 'diamond':
             self.creditos_restantes = 9999
 
+    def __str__(self):
+        return f"""
+        Cliente #{self.id}
+            Nome: {self.nome}
+            CPF: {self.cpf}
+            CEP: {self.cep}
+            Telefone: {self.telefone}
+            Nascimento: {self.nascimento}
+            Email: {self.email}
+            Plano Atual: {self.plano_atual}
+            Pagamento: {self.forma_pagamento}
+            Creditos Restantes: {self.creditos_restantes}
+        """
+
 class BancoDeDados:
     def __init__(self):
         self.armazenar_dados_clientes = []
 
     def adicionar_cliente(self, novo_cliente):
         if any(novo_cliente.email == cliente.email or novo_cliente.cpf == cliente.cpf for cliente in self.armazenar_dados_clientes):
-            print('Já cadastrado')
             return 'Já cadastrado'
 
         self.armazenar_dados_clientes.append(novo_cliente)
-        self.listar_clientes()
-        print(f'Cadastrado com sucesso!')
         return 'OK'
 
     def remover_cliente(self, id):
@@ -51,7 +63,6 @@ class BancoDeDados:
             return f'Não encontrado.'
 
     def listar_clientes(self):
-        print('LISTAR')
         for cliente in self.armazenar_dados_clientes:
             print(cliente.nome, cliente.email, cliente.senha, cliente.telefone) 
 
@@ -63,4 +74,5 @@ class BancoDeDados:
             return False
 
     def encontrar_cliente_por_id(self, id):
+        print(f"Procurando cliente com ID {id}...")
         return next((cliente for cliente in self.armazenar_dados_clientes if cliente.id == id), None)
